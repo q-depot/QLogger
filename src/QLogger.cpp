@@ -62,12 +62,17 @@ void QLogger::init( fs::path logsPath )
         
 }
     
-void QLogger::log( const string msg )
+void QLogger::log( const string msg, bool logTimestamp )
 {
     string      fileName = mLogsPath.generic_string(); fileName += getTodayFileName();
 
     ofstream    openFile( fileName.c_str(), std::ios::app );
-    openFile << getTodayDateTime() << ": " << msg << endl;
+    
+    if ( logTimestamp )
+        openFile << getTodayDateTime() << ": ";
+    
+    openFile << msg << endl;
+
     openFile.close();
     console() << msg << endl;
 }

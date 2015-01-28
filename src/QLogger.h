@@ -20,7 +20,7 @@ class QLogger {
 public:
 
     static void init( ci::fs::path logsPath );
-    static void log(const std::string msg);
+    static void log( const std::string msg, bool logTimestamp = true );
 
 private:
     
