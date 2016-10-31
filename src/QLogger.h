@@ -10,9 +10,7 @@
  */
 
 #pragma once
-#include "cinder/app/AppBasic.h"
-
-#define	KEEP_LOGS_FOR_N_DAYS	30
+#include "cinder/app/App.h"
 
 
 class QLogger {
@@ -24,9 +22,10 @@ public:
 
 private:
     
-    static std::string getTodayFileName();
-    static std::string getTodayDateTime();
-
+    static std::string  getTodayFileName();
+    static std::string  getTodayDateTime();
+    static void         deleteOldLogFiles();
+    
 private:
 
     static ci::fs::path    mLogsPath;
